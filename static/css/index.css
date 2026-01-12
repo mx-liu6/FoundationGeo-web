@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* Global Style */
 * {
   scroll-behavior: smooth;
 }
@@ -10,7 +10,7 @@ body {
   color: #2c3e50;
 }
 
-/* Hero区域增强 */
+/* Hero Area Enhancement */
 .hero {
   background: #ffffff;
 }
@@ -23,7 +23,7 @@ body {
   background: #f5f5f5;
 }
 
-/* 标题样式 */
+/* Title Style */
 .publication-title {
     font-family: 'Google Sans', sans-serif;
     font-weight: 700;
@@ -33,7 +33,7 @@ body {
     line-height: 1.2;
 }
 
-/* 作者样式 */
+/* Author Style */
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
     color: #000000;
@@ -57,7 +57,7 @@ body {
   margin-right: 0.3em;
 }
 
-/* 按钮样式增强 */
+/* Button Style Enhancement */
 .link-block {
   margin: 0.5rem;
   display: inline-block;
@@ -83,7 +83,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* 内容卡片样式 */
+/* Content Card Style */
 .section {
   padding: 4rem 1.5rem;
 }
@@ -96,7 +96,7 @@ body {
   max-width: 1200px;
 }
 
-/* 图片样式增强 */
+/* Image Auto-Resize */
 .publication-banner img,
 .section img,
 .hero img {
@@ -112,7 +112,7 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-/* 标题样式 */
+/* Title Style */
 .title {
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -147,7 +147,7 @@ body {
   display: inline-block;
 }
 
-/* 内容区域 */
+/* Content Area */
 .content {
   font-size: 1.05rem;
   line-height: 1.8;
@@ -163,7 +163,7 @@ body {
   font-weight: 600;
 }
 
-/* 视频样式 */
+/* Video Style */
 .publication-video {
     position: relative;
     width: 100%;
@@ -192,7 +192,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* 轮播样式 */
+/* Carousel Style */
 .results-carousel {
   overflow: hidden;
   border-radius: 12px;
@@ -220,7 +220,7 @@ body {
   background: #000000;
 }
 
-/* 其他样式 */
+/* Other Style */
 .dnerf {
   font-variant: small-caps;
 }
@@ -250,7 +250,7 @@ body {
   font-size: smaller;
 }
 
-/* 点云缩略图样式增强 */
+/* Point Cloud Thumbnail Style */
 .thumbnail-item {
   opacity: 0.7;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -273,7 +273,7 @@ body {
   transform: scale(1.05);
 }
 
-/* 点云容器样式 */
+/* Point Cloud Container Style */
 .pointcloud-container {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
@@ -283,7 +283,7 @@ body {
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* BibTeX区域 */
+/* BibTeX Area */
 #BibTeX {
   background: #ffffff;
   border-radius: 12px;
@@ -307,7 +307,7 @@ body {
   font-family: 'Courier New', monospace;
 }
 
-/* Footer样式 */
+/* Footer Style */
 .footer {
   background: #ffffff;
   color: #666;
@@ -336,7 +336,7 @@ body {
   color: #2366d1;
 }
 
-/* 响应式设计 */
+/* Responsive Design */
 @media (max-width: 768px) {
   .publication-title {
     font-size: 2rem;
@@ -360,7 +360,7 @@ body {
   }
 }
 
-/* 动画效果 */
+/* Animation Effect */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -377,7 +377,7 @@ body {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* 滚动条样式 */
+/* Scroll Bar Style */
 ::-webkit-scrollbar {
   width: 10px;
 }
