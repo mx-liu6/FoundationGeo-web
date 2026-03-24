@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>FoundationGeo: Learning Pixel-Wise Scale Fields for Monocular Metric Geometry</title>
+  <title>FoundationGeo: Learning Pixel-Wise Spatial Fields for Monocular Metric Geometry</title>
   <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -203,7 +203,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Estimating metric 3D geometry from a single RGB image remains an open challenge, as perspective projection removes absolute scale information. Recent foundation models have achieved highly accurate relative depth through large-scale pretraining, while metric estimation, which recovering depth in real-world units, still lags far behind due to camera ambiguities and data scarcity. We revisit this problem by asking: can the strong structural priors of relative models be effectively repurposed for accurate metric prediction? We present <b>FoundationGeo</b>, with two-stage training strategy that explicitly bridges the relative–metric divide. In the first stage, a DINOv3-vitl backbone is trained with global and multi-scale geometric constraints over a curated 9.1M sample dataset spanning synthetic, indoor, and outdoor scenes to achieve high-fidelity relative geometry. In the second stage, a pixel-level scale field is introduced to learn spatially varying scale factors, jointly optimized through coupled metric–relative objectives with a decoupled scale field loss for stable training. FoundationGeo attains state-of-the-art zero-shot performance across nine datasets on both metric depth and metric point map benchmarks, while maintaining strong relative consistency. Further analyses show that incorporating sparse metric cues, known intrinsics or domain-specific fine-tuning yields additional gains. In particular, with 3000 sparse metric priors, our predictions can almost match the performance of relative results.          </p>
+          We present FoundationGeo, a two-stage framework that explicitly bridges relative and metric prediction via spatial calibration and principled data design. Stage 1 learns a high-fidelity, affine-invariant geometry model by initializing with DINOv3 and training on a curated 10.2M-sample multi-domain corpus with complementary local-detail supervision, yielding sharp boundaries and strong cross-domain generalization. Stage 2 moves beyond global scaling by introducing lightweight pixel-wise calibration fields for metric estimation: a scale field for spatially varying metric alignment and a ray-direction correction field that mitigates directional bias in point-map geometry, together producing metrically consistent 3D point maps. Beyond model design, we identify camera intrinsic coverage, especially focal length distribution mismatch between training and test data, as a key bottleneck for zero-shot metric generalization: performance drops sharply when test intrinsics fall outside the training distribution. To address this, we synthesize additional training data across diverse focal lengths using a Blender-based data engine, repairing under-covered focal regimes and improving robustness under intrinsic shift. Extensive zero-shot evaluations across seven benchmarks show that FoundationGeo significantly strengthens cross-domain robustness, staying near the top across diverse domains while avoiding the sharp cross-domain performance drops observed in other methods. This consistency translates into the best overall performance, surpassing heavier baselines by over 5.2% on average.
+          </p>
         </div>
       </div>
     </div>
@@ -220,7 +221,7 @@
         <img src="static/images/Structure.png" alt="Structure of FoundationGeo" style="width: 100%; max-width: 2200px;"/>
         <div class="content has-text-justified">
           <p>
-            <b>FoundationGeo architecture.</b> A ViT encoder with a lightweight up-sampling convolutional decoder first learns a high-fidelity <i>relative geometry</i> branch that predicts a validity mask <b>M̂</b> and an affine-invariant point map <b>P̂</b>. In the second stage, a pixel-level scale field <b>ŝ</b> converts these relative predictions into metric geometry through detail-aware rescaling, yielding the metric-scale point <b>P̃</b>. Metric depth and surface normals are subsequently derived from <b>P̃</b>.
+            <b>FoundationGeo architecture.</b> A ViT encoder with a lightweight up-sampling convolutional decoder first learns a high-fidelity <i>relative geometry</i> branch, predicting a validity mask M̂ and an affine-invariant point map P̂. In the second stage, we first apply a ray-direction correction field Δ̂ to P̂ to obtain a direction-refined relative point map, and then use a spatial scale field Ŝ to perform spatially varying rescaling, producing a metric point map P̃. Metric depth and surface normals are subsequently derived from P̃.
           </p>
         </div>
       </div>
@@ -281,7 +282,7 @@
         <img src="static/images/Performance.png" alt="Results" style="max-width: 1800px; width: 100%; height: auto;"/>
         <div class="content has-text-justified">
           <p>
-            Quantitative results for metric depth and metric point map estimation. <i>AbsRel</i> and δ₁ are in percentage. The best values are highlighted in <b>bold</b>, and the second-best ones are <u>underlined</u>. * means we use GT intrinsic as input. <span style="color: #808080;">Gray numbers</span> denote models trained on respective benchmarks or need GT intrinsics, thus excluded from ranking.
+            Quantitative results for metric and relative depth estimation. <i>AbsRel</i> and δ<sub>1</sub> are in percentage. The best values are highlighted in <b>bold</b>, and the second-best ones are <u>underlined</u>. * means model needs GT intrinsic as input. <span style="color: #808080;">Gray numbers</span> denote models trained on respective benchmarks or need GT intrinsics, thus excluded from ranking.
           </p>
         </div>
       </div>
