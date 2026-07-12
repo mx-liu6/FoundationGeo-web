@@ -155,8 +155,10 @@ body::before {
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
     color: #15191c;
-    font-size: 1rem;
-    line-height: 1.82;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 0.96rem;
+    line-height: 1.55;
 }
 
 .publication-authors a {
@@ -181,13 +183,14 @@ body::before {
 }
 
 .publication-affiliations {
-  font-size: 0.9rem;
-  line-height: 1.62;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .eql-cntrb {
-  font-size: 0.86rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .author-block {
@@ -537,7 +540,7 @@ body::before {
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1720px) {
   .toc {
     position: sticky;
     top: 0;
